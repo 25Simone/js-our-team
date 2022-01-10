@@ -29,5 +29,20 @@ const team = [
       role: 'Graphic Designer',
       image: 'barbara-ramos-graphic-designer.jpg',
     },
-  ];
-  
+];
+
+// definisco la variabille di collegamrnto all'html
+const outputHtml = document.querySelector('.team-container');
+
+for(let i = 1; i < team.length; i++) {
+    outputHtml.innerHTML += `
+    <div class="team-card">
+        <div class="card-image">
+            <img src="img/${team[i].image}" alt="${team[i].name}"/>
+        </div>
+        <div class="card-text">
+            <h3>${team[i].name}</h3>
+            <p>${team[i].role}</p>
+        </div>
+    </div>`;
+}
