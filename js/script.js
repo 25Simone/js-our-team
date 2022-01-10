@@ -46,3 +46,18 @@ for(let i = 1; i < team.length; i++) {
         </div>
     </div>`;
 }
+
+// or
+// for(let i = 1; i < team.length; i++){
+//     let teamCard = document.createElement('div');
+//     teamCard.className = 'team-card';
+//     let cardImg = document.createElement('div');
+//     cardImg.className = 'card-image';
+//     cardImg.innerHTML += `<img src="img/${team[i].image}" alt="${team[i].name}"/>`;
+//     let cardText = document.createElement('div')
+//     cardText.className = 'card-text';
+//     cardText.innerHTML += `<h3>${team[i].name}</h3>`;
+//     cardText.innerHTML += `<p>${team[i].role}</p>`;
+//     teamCard.append(cardImg, cardText);
+//     outputHtml.append(teamCard);
+// }
