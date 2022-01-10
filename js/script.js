@@ -33,8 +33,8 @@ const team = [
 ];
 
 // definisco la funzione per stampare le card
-function addCard(object) {
-    outputHtml.innerHTML += `
+function addCard(output, object) {
+    output.innerHTML += `
     <div class="team-card">
         <div class="card-image">
             <img src="img/${object.image}" alt="${object.name}"/>
@@ -50,7 +50,7 @@ function addCard(object) {
 const outputHtml = document.querySelector('.team-container');
 
 for(let i = 1; i < team.length; i++) {
-    addCard(team[i]);
+    addCard(outputHtml, team[i]);
 }
 
 // or
@@ -86,5 +86,5 @@ addMemberButton.addEventListener('click', () => {
         image: newImg,
     }
     team.push(newMember);
-    addCard(newMember);
+    addCard(outputHtml, newMember);
 })
