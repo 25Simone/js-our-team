@@ -32,20 +32,25 @@ const team = [
     },
 ];
 
+// definisco la funzione per stampare le card
+function addCard(object) {
+    outputHtml.innerHTML += `
+    <div class="team-card">
+        <div class="card-image">
+            <img src="img/${object.image}" alt="${object.name}"/>
+        </div>
+        <div class="card-text">
+            <h3>${object.name}</h3>
+            <p>${object.role}</p>
+        </div>
+    </div>`;
+}
+
 // definisco la variabille di collegamrnto all'html
 const outputHtml = document.querySelector('.team-container');
 
 for(let i = 1; i < team.length; i++) {
-    outputHtml.innerHTML += `
-    <div class="team-card">
-        <div class="card-image">
-            <img src="img/${team[i].image}" alt="${team[i].name}"/>
-        </div>
-        <div class="card-text">
-            <h3>${team[i].name}</h3>
-            <p>${team[i].role}</p>
-        </div>
-    </div>`;
+    addCard(team[i]);
 }
 
 // or
@@ -61,24 +66,25 @@ for(let i = 1; i < team.length; i++) {
     //     cardText.innerHTML += `<p>${team[i].role}</p>`;
     //     teamCard.append(cardImg, cardText);
     //     outputHtml.append(teamCard);
-    // }
+// }
     
-    // BONUS
-    // definisco la variabile del bottone
-    const addMemberButton = document.getElementById('addMemberButton');
+
+
+
+// BONUS
+// definisco la variabile del bottone
+const addMemberButton = document.getElementById('addMemberButton');
     
-    // definisco l'evento al click del bottone
-    addMemberButton.addEventListener('click', () => {
-        let newName = document.getElementById('name').value;
-        let newRole = document.getElementById('role').value;
-        let newImg = document.getElementById('image').value;
-        const object = {
-            name: newName,
-            role: newRole,
-            image: newImg,
-        }
-        team.push(object);
-    })
-    
-    
-    
+// definisco l'evento al click del bottone
+addMemberButton.addEventListener('click', () => {
+    let newName = document.getElementById('name').value;
+    let newRole = document.getElementById('role').value;
+    let newImg = document.getElementById('image').value;
+    const newMember = {
+        name: newName,
+        role: newRole,
+        image: newImg,
+    }
+    team.push(newMember);
+    addCard(newMember);
+})
